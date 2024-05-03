@@ -19,7 +19,8 @@ export default defineConfig({
   },
   define: {
     'process.env': {
-      REACT_APP_BACKEND_URL: "http://localhost:5000"
+      // REACT_APP_BACKEND_URL: "http://localhost:5000"
+      REACT_APP_BACKEND_URL: "https://nourishnet-2eyc.onrender.com"
       // REACT_APP_BACKEND_URL: "https://nourish-net-three.vercel.app"
     }
   }
