@@ -17,4 +17,10 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  define: {
+    'process.env': {
+      REACT_APP_BACKEND_URL: "http://localhost:5000"
+      // REACT_APP_BACKEND_URL: "https://nourish-net-three.vercel.app"
+    }
+  }
 });

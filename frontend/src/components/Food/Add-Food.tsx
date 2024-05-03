@@ -57,7 +57,7 @@ export default function AddFood() {
     }
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/food/donate-food", {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/food/donate-food`, {
         method: "POST",
         body: formData,
         headers: {
