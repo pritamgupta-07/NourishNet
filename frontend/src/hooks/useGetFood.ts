@@ -26,7 +26,7 @@ const useGetMyFoods = (): { food: Food[] | null; error: string | null; loading: 
             return;
           }
   
-          const response = await fetch('https://nourishnet-vt0k.onrender.com/api/food/user', {
+          const response = await fetch('http://localhost:5000/api/food/user', {
             headers: {
               Authorization: `Bearer ${authUser.token}`,
             },

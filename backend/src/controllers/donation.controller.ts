@@ -48,7 +48,7 @@ export const getAllFood = async (req: Request, res: Response) => {
     const donations = await Donation.find();
 
     if (!donations) {
-      return res.status(401).json({
+      return res.status(404).json({
         message: "No Donations found",
       });
     }

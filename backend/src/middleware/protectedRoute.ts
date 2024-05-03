@@ -2,7 +2,7 @@ import { User } from "../models/models";
 import jwt from "jsonwebtoken";
 import { JwtPayload } from "jsonwebtoken";
 
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction } from "express";
 
 interface CustomRequest extends Request {
   user?: any;
@@ -14,16 +14,17 @@ const protectedRoute = async (
   next: NextFunction
 ) => {
   try {
-    const token = req.cookies.jwt;
+    // const token = req.cookies.jwt;
 
+    let token = req.headers["authorization"];
+    token = token?.split(" ")[1];
+
+    
     if (!token) {
       return res.status(401).json({ error: "No token" });
     }
 
-    const decoded = jwt.verify(
-      token,
-      process.env.JWT_SECRET || ""
-    ) as JwtPayload;
+    const decoded = jwt.verify(token, "thisisasecret") as JwtPayload;
 
     if (!decoded) {
       return res.status(401).json({ error: "invalid token" });

@@ -21,7 +21,7 @@ const useLogin = () => {
         if (!success) return;
         setLoading(true);
         try {
-            const res = await fetch("https://nourishnet-vt0k.onrender.com/api/auth/login", {
+            const res = await fetch("http://localhost:5000/api/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, password }),
@@ -36,6 +36,7 @@ const useLogin = () => {
             localStorage.setItem("user", JSON.stringify(data))
             if (setAuthUser) {
                 setAuthUser(data);
+                console.log("setting user data", data);
             }
         } catch (e) {
             toast.error((e as Error).message);
